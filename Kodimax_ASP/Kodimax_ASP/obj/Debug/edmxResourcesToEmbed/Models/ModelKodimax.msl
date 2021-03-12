@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KodimaxBDModelStoreContainer" CdmEntityContainer="KodimaxContext">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="KodimaxBDModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="KodimaxBDModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Golosina">
+      <EntityTypeMapping TypeName="KodimaxBDModel.Golosina">
+        <MappingFragment StoreEntitySet="Golosina">
+          <ScalarProperty Name="Id_Golosina" ColumnName="Id_Golosina" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pelicula">
+      <EntityTypeMapping TypeName="KodimaxBDModel.Pelicula">
+        <MappingFragment StoreEntitySet="Pelicula">
+          <ScalarProperty Name="Id_Pelicula" ColumnName="Id_Pelicula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sala">
+      <EntityTypeMapping TypeName="KodimaxBDModel.Sala">
+        <MappingFragment StoreEntitySet="Sala">
+          <ScalarProperty Name="Id_Sala" ColumnName="Id_Sala" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Asientos" ColumnName="Asientos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketGolosina">
+      <EntityTypeMapping TypeName="KodimaxBDModel.TicketGolosina">
+        <MappingFragment StoreEntitySet="TicketGolosina">
+          <ScalarProperty Name="Id_TicketGolosina" ColumnName="Id_TicketGolosina" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_golosina" ColumnName="id_golosina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketPelicula">
+      <EntityTypeMapping TypeName="KodimaxBDModel.TicketPelicula">
+        <MappingFragment StoreEntitySet="TicketPelicula">
+          <ScalarProperty Name="Id_TicketPelicula" ColumnName="Id_TicketPelicula" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
+          <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

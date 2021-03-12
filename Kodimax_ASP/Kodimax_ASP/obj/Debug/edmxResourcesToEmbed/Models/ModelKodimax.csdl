@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KodimaxBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id_Cliente" />
+    </Key>
+    <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Cliente" FromRole="Cliente" ToRole="TicketGolosina" />
+    <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Cliente" FromRole="Cliente" ToRole="TicketPelicula" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id_Empleado" />
+    </Key>
+    <Property Name="Id_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Empleado" FromRole="Empleado" ToRole="TicketGolosina" />
+    <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Empleado" FromRole="Empleado" ToRole="TicketPelicula" />
+  </EntityType>
+  <EntityType Name="Golosina">
+    <Key>
+      <PropertyRef Name="Id_Golosina" />
+    </Key>
+    <Property Name="Id_Golosina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Golosina" FromRole="Golosina" ToRole="TicketGolosina" />
+  </EntityType>
+  <EntityType Name="Pelicula">
+    <Key>
+      <PropertyRef Name="Id_Pelicula" />
+    </Key>
+    <Property Name="Id_Pelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Duracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Pelicula" FromRole="Pelicula" ToRole="TicketPelicula" />
+  </EntityType>
+  <EntityType Name="Sala">
+    <Key>
+      <PropertyRef Name="Id_Sala" />
+    </Key>
+    <Property Name="Id_Sala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="Asientos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Sala" FromRole="Sala" ToRole="TicketPelicula" />
+  </EntityType>
+  <EntityType Name="TicketGolosina">
+    <Key>
+      <PropertyRef Name="Id_TicketGolosina" />
+    </Key>
+    <Property Name="Id_TicketGolosina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="SubTotal" Type="Double" Nullable="false" />
+    <Property Name="Tax" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_empleado" Type="Int32" Nullable="false" />
+    <Property Name="id_golosina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_TicketGolosina_Cliente" FromRole="TicketGolosina" ToRole="Cliente" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_TicketGolosina_Empleado" FromRole="TicketGolosina" ToRole="Empleado" />
+    <NavigationProperty Name="Golosina" Relationship="Self.FK_TicketGolosina_Golosina" FromRole="TicketGolosina" ToRole="Golosina" />
+  </EntityType>
+  <EntityType Name="TicketPelicula">
+    <Key>
+      <PropertyRef Name="Id_TicketPelicula" />
+    </Key>
+    <Property Name="Id_TicketPelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="SubTotal" Type="Double" Nullable="false" />
+    <Property Name="Tax" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_empleado" Type="Int32" Nullable="false" />
+    <Property Name="id_pelicula" Type="Int32" Nullable="false" />
+    <Property Name="id_sala" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_TicketPelicula_Cliente" FromRole="TicketPelicula" ToRole="Cliente" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_TicketPelicula_Empleado" FromRole="TicketPelicula" ToRole="Empleado" />
+    <NavigationProperty Name="Pelicula" Relationship="Self.FK_TicketPelicula_Pelicula" FromRole="TicketPelicula" ToRole="Pelicula" />
+    <NavigationProperty Name="Sala" Relationship="Self.FK_TicketPelicula_Sala" FromRole="TicketPelicula" ToRole="Sala" />
+  </EntityType>
+  <Association Name="FK_TicketGolosina_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="TicketGolosina">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketPelicula_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="TicketPelicula">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketGolosina_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id_Empleado" />
+      </Principal>
+      <Dependent Role="TicketGolosina">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketPelicula_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="Id_Empleado" />
+      </Principal>
+      <Dependent Role="TicketPelicula">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketGolosina_Golosina">
+    <End Role="Golosina" Type="Self.Golosina" Multiplicity="1" />
+    <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Golosina">
+        <PropertyRef Name="Id_Golosina" />
+      </Principal>
+      <Dependent Role="TicketGolosina">
+        <PropertyRef Name="id_golosina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketPelicula_Pelicula">
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="1" />
+    <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="Id_Pelicula" />
+      </Principal>
+      <Dependent Role="TicketPelicula">
+        <PropertyRef Name="id_pelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketPelicula_Sala">
+    <End Role="Sala" Type="Self.Sala" Multiplicity="1" />
+    <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="Id_Sala" />
+      </Principal>
+      <Dependent Role="TicketPelicula">
+        <PropertyRef Name="id_sala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KodimaxContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Golosina" EntityType="Self.Golosina" />
+    <EntitySet Name="Pelicula" EntityType="Self.Pelicula" />
+    <EntitySet Name="Sala" EntityType="Self.Sala" />
+    <EntitySet Name="TicketGolosina" EntityType="Self.TicketGolosina" />
+    <EntitySet Name="TicketPelicula" EntityType="Self.TicketPelicula" />
+    <AssociationSet Name="FK_TicketGolosina_Cliente" Association="Self.FK_TicketGolosina_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketPelicula_Cliente" Association="Self.FK_TicketPelicula_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketGolosina_Empleado" Association="Self.FK_TicketGolosina_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketPelicula_Empleado" Association="Self.FK_TicketPelicula_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketGolosina_Golosina" Association="Self.FK_TicketGolosina_Golosina">
+      <End Role="Golosina" EntitySet="Golosina" />
+      <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketPelicula_Pelicula" Association="Self.FK_TicketPelicula_Pelicula">
+      <End Role="Pelicula" EntitySet="Pelicula" />
+      <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketPelicula_Sala" Association="Self.FK_TicketPelicula_Sala">
+      <End Role="Sala" EntitySet="Sala" />
+      <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
