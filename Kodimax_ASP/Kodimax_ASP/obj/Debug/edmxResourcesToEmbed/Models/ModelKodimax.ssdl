@@ -8,7 +8,7 @@
     <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Correo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Telefono" Type="varbinary" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="Fecha_nacimiento" Type="date" Nullable="false" />
     <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />

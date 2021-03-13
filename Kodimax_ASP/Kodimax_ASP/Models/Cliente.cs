@@ -25,7 +25,7 @@ namespace Kodimax_ASP.Models
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Correo { get; set; }
-        public byte[] Telefono { get; set; }
+        public string Telefono { get; set; }
         public string Sexo { get; set; }
         public System.DateTime Fecha_nacimiento { get; set; }
         public string Usuario { get; set; }

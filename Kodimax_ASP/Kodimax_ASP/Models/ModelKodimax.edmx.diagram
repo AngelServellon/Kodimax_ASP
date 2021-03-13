@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6a2d8f2ed2a548bc8834f623615ecbe4" Name="Diagram1">
-        <EntityTypeShape EntityType="KodimaxBDModel.Cliente" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.Empleado" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.Golosina" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.Pelicula" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.Sala" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.TicketGolosina" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KodimaxBDModel.TicketPelicula" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Golosina" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Pelicula" ManuallyRouted="false" />
-        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Sala" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KodimaxBDModel.Cliente" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="KodimaxBDModel.Empleado" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="KodimaxBDModel.Golosina" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="KodimaxBDModel.Pelicula" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KodimaxBDModel.Sala" Width="1.5" PointX="3.75" PointY="8.625" />
+        <EntityTypeShape EntityType="KodimaxBDModel.TicketGolosina" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="KodimaxBDModel.TicketPelicula" Width="1.5" PointX="6" PointY="4.375" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Cliente" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Cliente" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Empleado" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Empleado" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketGolosina_Golosina" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Pelicula" />
+        <AssociationConnector Association="KodimaxBDModel.FK_TicketPelicula_Sala" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

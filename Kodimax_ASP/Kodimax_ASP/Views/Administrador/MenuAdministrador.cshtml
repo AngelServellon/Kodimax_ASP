@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "MenuAdministrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Empleados", "Index", "Home")</li>
+                <li>@Html.ActionLink("Usuarios", "Index", "Home")</li>
+                <li>@Html.ActionLink("Modificar Cartelera", "Index", "Home")</li>
+                <li>@Html.ActionLink("Modificar Tienda de Golosinas", "Index", "Home")</li>
+                <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
+                <li><a href="/Home/Index">Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KodimaxBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KodimaxBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Id_Cliente" />
@@ -13,7 +13,7 @@
           <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Correo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Telefono" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="Fecha_nacimiento" Type="date" Nullable="false" />
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
@@ -212,74 +212,110 @@
             <End Role="TicketPelicula" EntitySet="TicketPelicula" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KodimaxBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KodimaxContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="KodimaxBDModel.Cliente" />
+          <EntitySet Name="Empleado" EntityType="KodimaxBDModel.Empleado" />
+          <EntitySet Name="Golosina" EntityType="KodimaxBDModel.Golosina" />
+          <EntitySet Name="Pelicula" EntityType="KodimaxBDModel.Pelicula" />
+          <EntitySet Name="Sala" EntityType="KodimaxBDModel.Sala" />
+          <EntitySet Name="TicketGolosina" EntityType="KodimaxBDModel.TicketGolosina" />
+          <EntitySet Name="TicketPelicula" EntityType="KodimaxBDModel.TicketPelicula" />
+          <AssociationSet Name="FK_TicketGolosina_Cliente" Association="KodimaxBDModel.FK_TicketGolosina_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketPelicula_Cliente" Association="KodimaxBDModel.FK_TicketPelicula_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketGolosina_Empleado" Association="KodimaxBDModel.FK_TicketGolosina_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketPelicula_Empleado" Association="KodimaxBDModel.FK_TicketPelicula_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketGolosina_Golosina" Association="KodimaxBDModel.FK_TicketGolosina_Golosina">
+            <End Role="Golosina" EntitySet="Golosina" />
+            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketPelicula_Pelicula" Association="KodimaxBDModel.FK_TicketPelicula_Pelicula">
+            <End Role="Pelicula" EntitySet="Pelicula" />
+            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TicketPelicula_Sala" Association="KodimaxBDModel.FK_TicketPelicula_Sala">
+            <End Role="Sala" EntitySet="Sala" />
+            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Id_Cliente" />
           </Key>
           <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
-          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Cliente" FromRole="Cliente" ToRole="TicketGolosina" />
-          <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Cliente" FromRole="Cliente" ToRole="TicketPelicula" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TicketGolosina" Relationship="KodimaxBDModel.FK_TicketGolosina_Cliente" FromRole="Cliente" ToRole="TicketGolosina" />
+          <NavigationProperty Name="TicketPelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Cliente" FromRole="Cliente" ToRole="TicketPelicula" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
             <PropertyRef Name="Id_Empleado" />
           </Key>
           <Property Name="Id_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Empleado" FromRole="Empleado" ToRole="TicketGolosina" />
-          <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Empleado" FromRole="Empleado" ToRole="TicketPelicula" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TicketGolosina" Relationship="KodimaxBDModel.FK_TicketGolosina_Empleado" FromRole="Empleado" ToRole="TicketGolosina" />
+          <NavigationProperty Name="TicketPelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Empleado" FromRole="Empleado" ToRole="TicketPelicula" />
         </EntityType>
         <EntityType Name="Golosina">
           <Key>
             <PropertyRef Name="Id_Golosina" />
           </Key>
           <Property Name="Id_Golosina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Precio" Type="Double" Nullable="false" />
-          <Property Name="Imagen" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TicketGolosina" Relationship="Self.FK_TicketGolosina_Golosina" FromRole="Golosina" ToRole="TicketGolosina" />
+          <Property Name="Imagen" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TicketGolosina" Relationship="KodimaxBDModel.FK_TicketGolosina_Golosina" FromRole="Golosina" ToRole="TicketGolosina" />
         </EntityType>
         <EntityType Name="Pelicula">
           <Key>
             <PropertyRef Name="Id_Pelicula" />
           </Key>
           <Property Name="Id_Pelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Duracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Imagen" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Pelicula" FromRole="Pelicula" ToRole="TicketPelicula" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TicketPelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Pelicula" FromRole="Pelicula" ToRole="TicketPelicula" />
         </EntityType>
         <EntityType Name="Sala">
           <Key>
             <PropertyRef Name="Id_Sala" />
           </Key>
           <Property Name="Id_Sala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Precio" Type="Double" Nullable="false" />
           <Property Name="Asientos" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TicketPelicula" Relationship="Self.FK_TicketPelicula_Sala" FromRole="Sala" ToRole="TicketPelicula" />
+          <NavigationProperty Name="TicketPelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Sala" FromRole="Sala" ToRole="TicketPelicula" />
         </EntityType>
         <EntityType Name="TicketGolosina">
           <Key>
@@ -294,9 +330,9 @@
           <Property Name="id_cliente" Type="Int32" Nullable="false" />
           <Property Name="id_empleado" Type="Int32" Nullable="false" />
           <Property Name="id_golosina" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_TicketGolosina_Cliente" FromRole="TicketGolosina" ToRole="Cliente" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_TicketGolosina_Empleado" FromRole="TicketGolosina" ToRole="Empleado" />
-          <NavigationProperty Name="Golosina" Relationship="Self.FK_TicketGolosina_Golosina" FromRole="TicketGolosina" ToRole="Golosina" />
+          <NavigationProperty Name="Cliente" Relationship="KodimaxBDModel.FK_TicketGolosina_Cliente" FromRole="TicketGolosina" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="KodimaxBDModel.FK_TicketGolosina_Empleado" FromRole="TicketGolosina" ToRole="Empleado" />
+          <NavigationProperty Name="Golosina" Relationship="KodimaxBDModel.FK_TicketGolosina_Golosina" FromRole="TicketGolosina" ToRole="Golosina" />
         </EntityType>
         <EntityType Name="TicketPelicula">
           <Key>
@@ -312,14 +348,14 @@
           <Property Name="id_empleado" Type="Int32" Nullable="false" />
           <Property Name="id_pelicula" Type="Int32" Nullable="false" />
           <Property Name="id_sala" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_TicketPelicula_Cliente" FromRole="TicketPelicula" ToRole="Cliente" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_TicketPelicula_Empleado" FromRole="TicketPelicula" ToRole="Empleado" />
-          <NavigationProperty Name="Pelicula" Relationship="Self.FK_TicketPelicula_Pelicula" FromRole="TicketPelicula" ToRole="Pelicula" />
-          <NavigationProperty Name="Sala" Relationship="Self.FK_TicketPelicula_Sala" FromRole="TicketPelicula" ToRole="Sala" />
+          <NavigationProperty Name="Cliente" Relationship="KodimaxBDModel.FK_TicketPelicula_Cliente" FromRole="TicketPelicula" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="KodimaxBDModel.FK_TicketPelicula_Empleado" FromRole="TicketPelicula" ToRole="Empleado" />
+          <NavigationProperty Name="Pelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Pelicula" FromRole="TicketPelicula" ToRole="Pelicula" />
+          <NavigationProperty Name="Sala" Relationship="KodimaxBDModel.FK_TicketPelicula_Sala" FromRole="TicketPelicula" ToRole="Sala" />
         </EntityType>
         <Association Name="FK_TicketGolosina_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketGolosina" Role="TicketGolosina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="Id_Cliente" />
@@ -330,8 +366,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketPelicula_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketPelicula" Role="TicketPelicula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="Id_Cliente" />
@@ -342,8 +378,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketGolosina_Empleado">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-          <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketGolosina" Role="TicketGolosina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empleado">
               <PropertyRef Name="Id_Empleado" />
@@ -354,8 +390,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketPelicula_Empleado">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-          <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketPelicula" Role="TicketPelicula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empleado">
               <PropertyRef Name="Id_Empleado" />
@@ -366,8 +402,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketGolosina_Golosina">
-          <End Role="Golosina" Type="Self.Golosina" Multiplicity="1" />
-          <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Golosina" Role="Golosina" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketGolosina" Role="TicketGolosina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Golosina">
               <PropertyRef Name="Id_Golosina" />
@@ -378,8 +414,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketPelicula_Pelicula">
-          <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="1" />
-          <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Pelicula" Role="Pelicula" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketPelicula" Role="TicketPelicula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pelicula">
               <PropertyRef Name="Id_Pelicula" />
@@ -390,8 +426,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TicketPelicula_Sala">
-          <End Role="Sala" Type="Self.Sala" Multiplicity="1" />
-          <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
+          <End Type="KodimaxBDModel.Sala" Role="Sala" Multiplicity="1" />
+          <End Type="KodimaxBDModel.TicketPelicula" Role="TicketPelicula" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sala">
               <PropertyRef Name="Id_Sala" />
@@ -401,43 +437,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KodimaxContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
-          <EntitySet Name="Golosina" EntityType="Self.Golosina" />
-          <EntitySet Name="Pelicula" EntityType="Self.Pelicula" />
-          <EntitySet Name="Sala" EntityType="Self.Sala" />
-          <EntitySet Name="TicketGolosina" EntityType="Self.TicketGolosina" />
-          <EntitySet Name="TicketPelicula" EntityType="Self.TicketPelicula" />
-          <AssociationSet Name="FK_TicketGolosina_Cliente" Association="Self.FK_TicketGolosina_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketPelicula_Cliente" Association="Self.FK_TicketPelicula_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketGolosina_Empleado" Association="Self.FK_TicketGolosina_Empleado">
-            <End Role="Empleado" EntitySet="Empleado" />
-            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketPelicula_Empleado" Association="Self.FK_TicketPelicula_Empleado">
-            <End Role="Empleado" EntitySet="Empleado" />
-            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketGolosina_Golosina" Association="Self.FK_TicketGolosina_Golosina">
-            <End Role="Golosina" EntitySet="Golosina" />
-            <End Role="TicketGolosina" EntitySet="TicketGolosina" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketPelicula_Pelicula" Association="Self.FK_TicketPelicula_Pelicula">
-            <End Role="Pelicula" EntitySet="Pelicula" />
-            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TicketPelicula_Sala" Association="Self.FK_TicketPelicula_Sala">
-            <End Role="Sala" EntitySet="Sala" />
-            <End Role="TicketPelicula" EntitySet="TicketPelicula" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -447,93 +446,93 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="KodimaxBDModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Empleado">
             <EntityTypeMapping TypeName="KodimaxBDModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
-                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Golosina">
             <EntityTypeMapping TypeName="KodimaxBDModel.Golosina">
               <MappingFragment StoreEntitySet="Golosina">
-                <ScalarProperty Name="Id_Golosina" ColumnName="Id_Golosina" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Golosina" ColumnName="Id_Golosina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pelicula">
             <EntityTypeMapping TypeName="KodimaxBDModel.Pelicula">
               <MappingFragment StoreEntitySet="Pelicula">
-                <ScalarProperty Name="Id_Pelicula" ColumnName="Id_Pelicula" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Pelicula" ColumnName="Id_Pelicula" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sala">
             <EntityTypeMapping TypeName="KodimaxBDModel.Sala">
               <MappingFragment StoreEntitySet="Sala">
-                <ScalarProperty Name="Id_Sala" ColumnName="Id_Sala" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Asientos" ColumnName="Asientos" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Sala" ColumnName="Id_Sala" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TicketGolosina">
             <EntityTypeMapping TypeName="KodimaxBDModel.TicketGolosina">
               <MappingFragment StoreEntitySet="TicketGolosina">
-                <ScalarProperty Name="Id_TicketGolosina" ColumnName="Id_TicketGolosina" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="id_golosina" ColumnName="id_golosina" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Id_TicketGolosina" ColumnName="Id_TicketGolosina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TicketPelicula">
             <EntityTypeMapping TypeName="KodimaxBDModel.TicketPelicula">
               <MappingFragment StoreEntitySet="TicketPelicula">
-                <ScalarProperty Name="Id_TicketPelicula" ColumnName="Id_TicketPelicula" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="Tax" ColumnName="Tax" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-                <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
                 <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Id_TicketPelicula" ColumnName="Id_TicketPelicula" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
