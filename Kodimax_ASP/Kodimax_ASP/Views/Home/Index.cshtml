@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    @{ 
+    @{
         if (!string.IsNullOrEmpty(ViewBag.Message))
         {
             //message tiene un valor
@@ -24,4 +24,5 @@
             <button>Iniciar sesion</button>
         </div>
     </form>
+    <button type="button" class="btn btn-info">@Html.ActionLink("Registrarse", "Registrar", "")</button>
 </div>

@@ -229,6 +229,8 @@
     <Content Include="Views\Cliente\MenuCliente.cshtml" />
     <Content Include="Views\Empleado\MenuEmpleado.cshtml" />
     <Content Include="Views\Administrador\MenuAdministrador.cshtml" />
+    <Content Include="Views\Home\Registrar.cshtml" />
+    <Content Include="Views\Cliente\Cartelera.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

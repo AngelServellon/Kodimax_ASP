@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form action="/Home/Registrar" method="post">
+    <div class="form-group">
+        <label>Nombres</label>
+        <input type="text" name="Nombres" value="" />
+    </div>
+    <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" name="Apellidos" value="" />
+    </div>
+    <div class="form-group">
+        <label>Correo</label>
+        <input type="email" name="Correo" value="" />
+    </div>
+    <div class="form-group">
+        <label>Telefono</label>
+        <input type="text" name="Telefono" value="" />
+    </div>
+    <div class="form-group">
+        <label>Sexo</label>
+        <select class="form-control" id="Sexo" name="Sexo">
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Fecha de nacimineto</label>
+        <input type="date" name="Fecha_nacimiento" value="" />
+    </div>
+    <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" name="Usuario" value="" />
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="Password" value="" />
+    </div>
+    <div class="form-group">
+        <label>Codigo empleado(si no es empleado omita el campo)</label>
+        <input type="text" name="Codigo" value="" />
+    </div>
+    <div class="form-group">
+        <button>Registrarse</button>
+    </div>
+</form>

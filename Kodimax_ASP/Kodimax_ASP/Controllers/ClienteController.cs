@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kodimax_ASP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,14 @@ namespace Kodimax_ASP.Controllers
     public class ClienteController : Controller
     {
         // GET: Cliente
-        [Authorize]
         public ActionResult MenuCliente()
         {
             return View();
+        }
+        public ActionResult Cartelera()
+        {
+            KodimaxContext db = new KodimaxContext();
+            return View(db.Pelicula.ToList());
         }
     }
 }

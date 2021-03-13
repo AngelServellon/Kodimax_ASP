@@ -52,5 +52,51 @@ namespace Kodimax_ASP.Controllers
 
         }
 
+        public ActionResult Registrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Registrar(string Nombres, string Apellidos, string Correo, string Telefono, string Sexo, DateTime Fecha_nacimiento, string Usuario, string Password, string Codigo)
+        {
+            if (Codigo == "emp-max")
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Empleado emp = new Empleado();
+                    emp.Nombres = Nombres;
+                    emp.Apellidos = Apellidos;
+                    emp.Correo = Correo;
+                    emp.Telefono = Telefono;
+                    emp.Sexo = Sexo;
+                    emp.Fecha_nacimiento = Fecha_nacimiento;
+                    emp.Usuario = Usuario;
+                    emp.Password = Password;
+
+                    db.Empleado.Add(emp);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Cliente cli = new Cliente();
+                    cli.Nombres = Nombres;
+                    cli.Apellidos = Apellidos;
+                    cli.Correo = Correo;
+                    cli.Telefono = Telefono;
+                    cli.Sexo = Sexo;
+                    cli.Fecha_nacimiento = Fecha_nacimiento;
+                    cli.Usuario = Usuario;
+                    cli.Password = Password;
+
+                    db.Cliente.Add(cli);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+        }
     }
 }
