@@ -36,7 +36,7 @@
     <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Precio" Type="float" Nullable="false" />
-    <Property Name="Imagen" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Imagen" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Pelicula">
     <Key>
@@ -46,7 +46,7 @@
     <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Duracion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Tipo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Imagen" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Imagen" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Sala">
     <Key>
@@ -67,7 +67,7 @@
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />
     <Property Name="Total" Type="float" Nullable="false" />
-    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
     <Property Name="id_empleado" Type="int" Nullable="false" />
     <Property Name="id_golosina" Type="int" Nullable="false" />
   </EntityType>
@@ -81,13 +81,13 @@
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />
     <Property Name="Total" Type="float" Nullable="false" />
-    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
     <Property Name="id_empleado" Type="int" Nullable="false" />
     <Property Name="id_pelicula" Type="int" Nullable="false" />
     <Property Name="id_sala" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_TicketGolosina_Cliente">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
     <End Role="TicketGolosina" Type="Self.TicketGolosina" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
@@ -123,7 +123,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TicketPelicula_Cliente">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
     <End Role="TicketPelicula" Type="Self.TicketPelicula" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">

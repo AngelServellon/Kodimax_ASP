@@ -15,8 +15,28 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Modificar Cartelera", "Index", "Home")</li>
-                <li>@Html.ActionLink("Modificar Tienda de Golosinas", "Index", "Home")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Modificar Cartelera
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Agregar Pelicula", "AgregarPelicula", "Pelicula")</li>
+                        <li>@Html.ActionLink("Eliminar Pelicula", "VerPeliculas", "Pelicula")</li>
+                        <li>@Html.ActionLink("Modificar Sala de Exhibicion", "Index", "Home")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Modificar Tienda de Golosinas
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Agregar Golosina", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Eliminar Golosina", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Modificar Golosinas", "Index", "Home")</li>
+                    </ul>
+                </li>
                 <li><a href="/Home/Index">Cerrar sesion</a></li>
             </ul>
         </div>

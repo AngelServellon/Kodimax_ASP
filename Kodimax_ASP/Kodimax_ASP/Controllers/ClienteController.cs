@@ -15,10 +15,6 @@ namespace Kodimax_ASP.Controllers
         {
             return View();
         }
-        public ActionResult Cartelera()
-        {
-            KodimaxContext db = new KodimaxContext();
-            return View(db.Pelicula.ToList());
-        }
+        
     }
 }

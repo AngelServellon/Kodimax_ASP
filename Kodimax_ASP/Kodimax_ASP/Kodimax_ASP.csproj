@@ -132,6 +132,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeliculaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +163,7 @@
     <Compile Include="Models\Pelicula.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PeliculaCE.cs" />
     <Compile Include="Models\Sala.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
@@ -230,7 +232,10 @@
     <Content Include="Views\Empleado\MenuEmpleado.cshtml" />
     <Content Include="Views\Administrador\MenuAdministrador.cshtml" />
     <Content Include="Views\Home\Registrar.cshtml" />
-    <Content Include="Views\Cliente\Cartelera.cshtml" />
+    <Content Include="Views\Pelicula\AgregarPelicula.cshtml" />
+    <Content Include="Views\Pelicula\Index.cshtml" />
+    <Content Include="Views\Pelicula\VerPeliculas.cshtml" />
+    <Content Include="Views\Pelicula\AgregarPeliculaAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

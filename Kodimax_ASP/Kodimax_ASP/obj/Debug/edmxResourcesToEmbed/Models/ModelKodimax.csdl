@@ -77,7 +77,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Precio" Type="Double" Nullable="false" />
-    <Property Name="Imagen" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="TicketGolosina" Relationship="KodimaxBDModel.FK_TicketGolosina_Golosina" FromRole="Golosina" ToRole="TicketGolosina" />
   </EntityType>
   <EntityType Name="Pelicula">
@@ -88,7 +88,7 @@
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Duracion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Tipo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Imagen" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="TicketPelicula" Relationship="KodimaxBDModel.FK_TicketPelicula_Pelicula" FromRole="Pelicula" ToRole="TicketPelicula" />
   </EntityType>
   <EntityType Name="Sala">
@@ -111,7 +111,7 @@
     <Property Name="SubTotal" Type="Double" Nullable="false" />
     <Property Name="Tax" Type="Double" Nullable="false" />
     <Property Name="Total" Type="Double" Nullable="false" />
-    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" />
     <Property Name="id_empleado" Type="Int32" Nullable="false" />
     <Property Name="id_golosina" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Cliente" Relationship="KodimaxBDModel.FK_TicketGolosina_Cliente" FromRole="TicketGolosina" ToRole="Cliente" />
@@ -128,7 +128,7 @@
     <Property Name="SubTotal" Type="Double" Nullable="false" />
     <Property Name="Tax" Type="Double" Nullable="false" />
     <Property Name="Total" Type="Double" Nullable="false" />
-    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_cliente" Type="Int32" />
     <Property Name="id_empleado" Type="Int32" Nullable="false" />
     <Property Name="id_pelicula" Type="Int32" Nullable="false" />
     <Property Name="id_sala" Type="Int32" Nullable="false" />
@@ -138,7 +138,7 @@
     <NavigationProperty Name="Sala" Relationship="KodimaxBDModel.FK_TicketPelicula_Sala" FromRole="TicketPelicula" ToRole="Sala" />
   </EntityType>
   <Association Name="FK_TicketGolosina_Cliente">
-    <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="0..1" />
     <End Type="KodimaxBDModel.TicketGolosina" Role="TicketGolosina" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
@@ -150,7 +150,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TicketPelicula_Cliente">
-    <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="KodimaxBDModel.Cliente" Role="Cliente" Multiplicity="0..1" />
     <End Type="KodimaxBDModel.TicketPelicula" Role="TicketPelicula" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cliente">
