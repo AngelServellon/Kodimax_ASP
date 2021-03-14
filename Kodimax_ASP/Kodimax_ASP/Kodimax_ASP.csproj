@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\GolosinaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,7 +236,9 @@
     <Content Include="Views\Pelicula\AgregarPelicula.cshtml" />
     <Content Include="Views\Pelicula\Index.cshtml" />
     <Content Include="Views\Pelicula\VerPeliculas.cshtml" />
-    <Content Include="Views\Pelicula\AgregarPeliculaAdmin.cshtml" />
+    <Content Include="Views\Golosina\Index.cshtml" />
+    <Content Include="Views\Golosina\AgregarGolosina.cshtml" />
+    <Content Include="Views\Golosina\VerGolosinas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

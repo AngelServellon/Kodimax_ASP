@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Kodimax_ASP.Models.Golosina>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tienda de Golosinas</h2>
+
+
+@foreach (var item in Model) {
+    <div class="col-sm-12 col-md-3">
+        <img width="200" src="@Url.Action("getImage", "Golosina", new { id = item.Id_Golosina })" alt="Alternate Text" />
+        <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+        <br />
+        <p>Tipo: @Html.DisplayFor(modelItem => item.Tipo)</p>
+        <p>Duracion: $@Html.DisplayFor(modelItem => item.Precio)</p>
+
+    </div>
+}
+

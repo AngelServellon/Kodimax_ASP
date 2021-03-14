@@ -11,36 +11,36 @@ using System.Web.Mvc;
 
 namespace Kodimax_ASP.Controllers
 {
-    public class PeliculaController : Controller
+    public class GolosinaController : Controller
     {
-        // GET: Pelicula
+        // GET: Golosina
         public ActionResult Index()
         {
             KodimaxContext db = new KodimaxContext();
-            return View(db.Pelicula.ToList());
+            return View(db.Golosina.ToList());
         }
-        
+
         //Agregar pelicula
-        public ActionResult AgregarPelicula()
+        public ActionResult AgregarGolosina()
         {
-            return View();
+            return View(); 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AgregarPelicula(Pelicula p)
+        public ActionResult AgregarGolosina(Golosina g)
         {
             HttpPostedFileBase FileBase = Request.Files[0];
-            //HttpFileCollectionBase collectionBase = Request.Files;
+            //HttpFileCollectionBase collection = Request.Files;
 
             WebImage image = new WebImage(FileBase.InputStream);
-
-            p.Imagen = image.GetBytes();
+            
+            g.Imagen = image.GetBytes();
 
             if (ModelState.IsValid)
             {
                 using (var db = new KodimaxContext())
                 {
-                    db.Pelicula.Add(p);
+                    db.Golosina.Add(g);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -48,14 +48,14 @@ namespace Kodimax_ASP.Controllers
             else
             {
                 return View();
-            }            
+            }
         }
         public ActionResult getImage(int id) //Poner la imagen
         {
             using (var db = new KodimaxContext())
             {
-                Pelicula peli = db.Pelicula.Find(id);
-                byte[] byteImage = peli.Imagen;
+                Golosina golo = db.Golosina.Find(id);
+                byte[] byteImage = golo.Imagen;
 
                 MemoryStream memoryStream = new MemoryStream(byteImage);
                 Image image = Image.FromStream(memoryStream);
@@ -64,28 +64,26 @@ namespace Kodimax_ASP.Controllers
                 image.Save(memoryStream, ImageFormat.Jpeg);
                 memoryStream.Position = 0;
 
-                return File(memoryStream,"image/jpg");
+                return File(memoryStream, "image/jpg");
             }
-            
+
         }
 
         //Eliminar pelicula
-        public ActionResult VerPeliculas()
+        public ActionResult VerGolosinas()
         {
             KodimaxContext db = new KodimaxContext();
-            return View(db.Pelicula.ToList());
+            return View(db.Golosina.ToList());
         }
-        public ActionResult EliminarPelicula(int id)
+        public ActionResult EliminarGolosina(int id)
         {
             using (var db = new KodimaxContext())
             {
-                Pelicula pel = db.Pelicula.Find(id);
-                db.Pelicula.Remove(pel);
+                Golosina gol = db.Golosina.Find(id);
+                db.Golosina.Remove(gol);
                 db.SaveChanges();
-                return RedirectToAction("VerPeliculas");
+                return RedirectToAction("VerGolosinas");
             }
         }
-
-        
     }
 }
