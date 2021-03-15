@@ -72,6 +72,8 @@
           <Property Name="SubTotal" Type="float" Nullable="false" />
           <Property Name="Tax" Type="float" Nullable="false" />
           <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="Pago" Type="float" Nullable="false" />
+          <Property Name="Cambio" Type="float" Nullable="false" />
           <Property Name="id_cliente" Type="int" />
           <Property Name="id_empleado" Type="int" Nullable="false" />
           <Property Name="id_golosina" Type="int" Nullable="false" />
@@ -86,6 +88,8 @@
           <Property Name="SubTotal" Type="float" Nullable="false" />
           <Property Name="Tax" Type="float" Nullable="false" />
           <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="Pago" Type="float" Nullable="false" />
+          <Property Name="Cambio" Type="float" Nullable="false" />
           <Property Name="id_cliente" Type="int" />
           <Property Name="id_empleado" Type="int" Nullable="false" />
           <Property Name="id_pelicula" Type="int" Nullable="false" />
@@ -327,6 +331,8 @@
           <Property Name="SubTotal" Type="Double" Nullable="false" />
           <Property Name="Tax" Type="Double" Nullable="false" />
           <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="Pago" Type="Double" Nullable="false" />
+          <Property Name="Cambio" Type="Double" Nullable="false" />
           <Property Name="id_cliente" Type="Int32" />
           <Property Name="id_empleado" Type="Int32" Nullable="false" />
           <Property Name="id_golosina" Type="Int32" Nullable="false" />
@@ -344,6 +350,8 @@
           <Property Name="SubTotal" Type="Double" Nullable="false" />
           <Property Name="Tax" Type="Double" Nullable="false" />
           <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="Pago" Type="Double" Nullable="false" />
+          <Property Name="Cambio" Type="Double" Nullable="false" />
           <Property Name="id_cliente" Type="Int32" />
           <Property Name="id_empleado" Type="Int32" Nullable="false" />
           <Property Name="id_pelicula" Type="Int32" Nullable="false" />
@@ -511,6 +519,8 @@
                 <ScalarProperty Name="id_golosina" ColumnName="id_golosina" />
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
@@ -527,6 +537,8 @@
                 <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="Tax" ColumnName="Tax" />
                 <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
