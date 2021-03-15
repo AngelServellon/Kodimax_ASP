@@ -69,7 +69,7 @@ namespace Kodimax_ASP.Controllers
 
         }
 
-        //Eliminar pelicula
+        //Eliminar golosina
         public ActionResult VerGolosinas()
         {
             KodimaxContext db = new KodimaxContext();
@@ -77,12 +77,68 @@ namespace Kodimax_ASP.Controllers
         }
         public ActionResult EliminarGolosina(int id)
         {
-            using (var db = new KodimaxContext())
+            try
             {
-                Golosina gol = db.Golosina.Find(id);
-                db.Golosina.Remove(gol);
-                db.SaveChanges();
-                return RedirectToAction("VerGolosinas");
+                using (var db = new KodimaxContext())
+                {
+                    Golosina gol = db.Golosina.Find(id);
+                    db.Golosina.Remove(gol);
+                    db.SaveChanges();
+                    return RedirectToAction("VerGolosinas");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error - " + ex.Message);
+                return View();
+            }
+            
+        }
+
+        //Editar Golosinas
+        public ActionResult VerGolosinasEd()
+        {
+            KodimaxContext db = new KodimaxContext();
+            return View(db.Golosina.ToList());
+        }
+        public ActionResult EditarGolosina(int id)
+        {
+            try
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Golosina golo = db.Golosina.Find(id);
+                    return View(golo);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error - " + ex.Message);
+                return View();
+            }
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarGolosina(Golosina g)
+        {
+          
+            try
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Golosina golo = db.Golosina.Find(g.Id_Golosina);
+                    golo.Tipo = g.Tipo;
+                    golo.Precio = g.Precio;
+
+                    db.SaveChanges();
+                    return RedirectToAction("VerGolosinasEd");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error - " + ex.Message);
+                return View();
             }
         }
     }

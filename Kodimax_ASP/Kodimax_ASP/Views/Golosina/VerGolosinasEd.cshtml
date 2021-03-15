@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Kodimax_ASP.Models.Golosina>
+
+@{
+    ViewBag.Title = "VerGolosinasEd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerGolosinasEd</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            <img width="75" src="@Url.Action("getImage", "Golosina", new { id = item.Id_Golosina })" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditarGolosina", new { id=item.Id_Golosina })
+        </td>
+    </tr>
+}
+
+</table>

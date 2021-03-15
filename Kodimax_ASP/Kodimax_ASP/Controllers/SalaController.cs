@@ -38,8 +38,6 @@ namespace Kodimax_ASP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditarSala(Sala s)
         {
-            if (!ModelState.IsValid)
-                return View();
             try
             {
                 using (var db = new KodimaxContext())
