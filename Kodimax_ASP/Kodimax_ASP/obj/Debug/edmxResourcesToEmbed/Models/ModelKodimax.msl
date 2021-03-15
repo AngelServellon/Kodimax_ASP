@@ -69,8 +69,6 @@
           <ScalarProperty Name="id_golosina" ColumnName="id_golosina" />
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="Cambio" ColumnName="Cambio" />
-          <ScalarProperty Name="Pago" ColumnName="Pago" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
           <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
@@ -87,8 +85,6 @@
           <ScalarProperty Name="id_pelicula" ColumnName="id_pelicula" />
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="Cambio" ColumnName="Cambio" />
-          <ScalarProperty Name="Pago" ColumnName="Pago" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Tax" ColumnName="Tax" />
           <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />

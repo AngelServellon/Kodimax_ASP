@@ -67,8 +67,6 @@
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />
     <Property Name="Total" Type="float" Nullable="false" />
-    <Property Name="Pago" Type="float" Nullable="false" />
-    <Property Name="Cambio" Type="float" Nullable="false" />
     <Property Name="id_cliente" Type="int" />
     <Property Name="id_empleado" Type="int" Nullable="false" />
     <Property Name="id_golosina" Type="int" Nullable="false" />
@@ -83,8 +81,6 @@
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />
     <Property Name="Total" Type="float" Nullable="false" />
-    <Property Name="Pago" Type="float" Nullable="false" />
-    <Property Name="Cambio" Type="float" Nullable="false" />
     <Property Name="id_cliente" Type="int" />
     <Property Name="id_empleado" Type="int" Nullable="false" />
     <Property Name="id_pelicula" Type="int" Nullable="false" />

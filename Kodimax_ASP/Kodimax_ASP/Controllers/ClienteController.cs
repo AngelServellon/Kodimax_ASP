@@ -15,6 +15,22 @@ namespace Kodimax_ASP.Controllers
         {
             return View();
         }
-        
+        public ActionResult Index()
+        {
+            KodimaxContext db = new KodimaxContext();
+            return View(db.Cliente.ToList());
+        }
+        public ActionResult EliminarCliente(int id)
+        {
+            using (var db = new KodimaxContext())
+            {
+                Cliente cli = db.Cliente.Find(id);
+                db.Cliente.Remove(cli);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+
     }
 }

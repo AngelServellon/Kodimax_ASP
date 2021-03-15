@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Kodimax_ASP.Models.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "AgregarEmpleado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Empleado
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_nacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @{
+                    if (item.Sexo == "M")
+                    {
+                        <span>Masculino</span>
+                    }
+                    else
+                    {
+                        <span>Femenino</span>
+                    }
+                }
+            </td>
+            <td>
+                @item.Fecha_nacimiento.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+
+            <td>
+                @Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.Id_Empleado }, new { @class = "aElimina" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+        $(".aElimina").click(function (event) {
+            if (!confirm("Estas seguro de eliminar? ")) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}

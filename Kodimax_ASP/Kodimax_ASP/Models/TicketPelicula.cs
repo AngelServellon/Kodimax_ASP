@@ -20,8 +20,6 @@ namespace Kodimax_ASP.Models
         public double SubTotal { get; set; }
         public double Tax { get; set; }
         public double Total { get; set; }
-        public double Pago { get; set; }
-        public double Cambio { get; set; }
         public Nullable<int> id_cliente { get; set; }
         public int id_empleado { get; set; }
         public int id_pelicula { get; set; }

@@ -15,17 +15,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Empleados
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Agregar Empleado", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Eliminar Empleado", "Index", "Home")</li>
-                    </ul>
-                </li>
-                <li>@Html.ActionLink("Usuarios", "Index", "Home")</li>
+                <li>@Html.ActionLink("Empleados", "Index", "Empleado")</li>
+                <li>@Html.ActionLink("Clientes", "Index", "Cliente")</li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         Modificar Cartelera

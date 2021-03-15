@@ -141,9 +141,11 @@
     <Compile Include="Models\Cliente.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClienteCE.cs" />
     <Compile Include="Models\Empleado.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmpleadoCE.cs" />
     <Compile Include="Models\Golosina.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
@@ -245,6 +247,9 @@
     <Content Include="Views\Sala\EditarSala.cshtml" />
     <Content Include="Views\Golosina\VerGolosinasEd.cshtml" />
     <Content Include="Views\Golosina\EditarGolosina.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Empleado\AgregarEmpleado.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
