@@ -135,6 +135,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculaController.cs" />
     <Compile Include="Controllers\SalaController.cs" />
+    <Compile Include="Controllers\TicketGolosinaController.cs" />
+    <Compile Include="Controllers\TicketPeliculaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +180,7 @@
     <Compile Include="Models\TicketPelicula.cs">
       <DependentUpon>ModelKodimax.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TicketPeliculaCE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +188,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\cliente.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +223,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Obtener_total.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -250,6 +255,11 @@
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Views\Empleado\AgregarEmpleado.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\TicketPelicula\AgregarTicketPelicula.cshtml" />
+    <Content Include="Views\TicketPelicula\ListaPeliculas.cshtml" />
+    <Content Include="Views\TicketPelicula\ListaSalas.cshtml" />
+    <Content Include="Views\TicketGolosina\AgregarTicketGolosina.cshtml" />
+    <Content Include="Views\TicketGolosina\ListaGolosinas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

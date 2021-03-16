@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Kodimax_ASP.Models.Golosina>
+
+<select class="form-control" id="id_golosina" name="id_golosina">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id_Golosina">@item.Nombre</option>
+    }
+</select>
