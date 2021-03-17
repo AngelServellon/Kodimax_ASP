@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+@*<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,9 +42,9 @@
             </ul>
         </div>
     </div>
-</div>
+</div>*@
 
-@*
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -65,7 +65,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Agregar Pelicula", "AgregarPelicula", "Pelicula")</li>
-                            <li>@Html.ActionLink("Eliminar Pelicula", "VerPelicula", "Pelicula")</li>
+                            <li>@Html.ActionLink("Eliminar Pelicula", "VerPeliculas", "Pelicula")</li>
                             <li>@Html.ActionLink("Modificar Sala de Exhibicion", "Index", "Sala")</li>
                         </ul>
                     </li>
@@ -86,13 +86,11 @@
             </div>
         </div>
     </div>
-*@
+
 
 <h2>Golosinas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<br />
 <table class="table">
     <tr>
         <th>

@@ -30,7 +30,7 @@ $(document).ready(function () {
             $("#ticket").removeClass("quitar");
             $("#ticket").addClass("poner");
         }
-        else if (pagar < total) {
+        else if (pagar < total || pagar == isNaN()) {
             $('.texto').text("Pago insuficiente");
             $('[name="pago"]').val = "";
         }
@@ -45,7 +45,7 @@ $(document).ready(function () {
         }
 
         //console.log(total);
-        ////console.log(pago);
+        console.log(pagar);
         ////console.log(cambio_redondeado);
     });
 });

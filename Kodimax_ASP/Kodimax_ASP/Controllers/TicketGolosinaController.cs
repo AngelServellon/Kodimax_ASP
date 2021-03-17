@@ -32,19 +32,20 @@ namespace Kodimax_ASP.Controllers
                 return db.Golosina.Find(id_Golosina).Precio;
             }
         }
+        //Obtener Nombre de la golosina
+        public static string NombreGolosina(int id_Golosina)
+        {
+            using (var db = new KodimaxContext())
+            {
+                return db.Golosina.Find(id_Golosina).Nombre;
+            }
+        }
         //Obtener nombre del empleado
         public static string NombreEmpleado(int id_Empleado)
         {
             using (var db = new KodimaxContext())
             {
-                if (id_Empleado == null)
-                {
-                    return "nombre";
-                }
-                else
-                {
-                    return db.Empleado.Find(id_Empleado).NombreCompleto;
-                }
+                return db.Empleado.Find(id_Empleado).NombreCompleto;
             }
         }
 
@@ -68,9 +69,22 @@ namespace Kodimax_ASP.Controllers
                 db.TicketGolosina.Add(tg);
                 db.SaveChanges();
 
-                ViewData["Message"] = tg.Total;
+                return RedirectToAction("Pagar", new { id = tg.Id_TicketGolosina });
+                //ViewData["Message"] = tg.Total;
+                //return View(tg);
+            }
+        }
+
+        //Pagar
+        public ActionResult Pagar(int id)
+        {
+            using (var db = new KodimaxContext())
+            {
+                TicketGolosina tg = db.TicketGolosina.Find(id);
                 return View(tg);
             }
         }
+
+        
     }
 }

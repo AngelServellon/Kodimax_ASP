@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+@*<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,9 +42,9 @@
             </ul>
         </div>
     </div>
-</div>
+</div>*@
 
-@*
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -65,7 +65,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Agregar Pelicula", "AgregarPelicula", "Pelicula")</li>
-                            <li>@Html.ActionLink("Eliminar Pelicula", "VerPelicula", "Pelicula")</li>
+                            <li>@Html.ActionLink("Eliminar Pelicula", "VerPeliculas", "Pelicula")</li>
                             <li>@Html.ActionLink("Modificar Sala de Exhibicion", "Index", "Sala")</li>
                         </ul>
                     </li>
@@ -86,9 +86,9 @@
             </div>
         </div>
     </div>
-*@
 
-<h2>EditarGolosina</h2>
+
+<h2>Editar Golosina</h2>
 
 
 @using (Html.BeginForm())
@@ -96,7 +96,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Golosina</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id_Golosina)

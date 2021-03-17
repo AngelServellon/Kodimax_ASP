@@ -8,6 +8,7 @@ namespace Kodimax_ASP.Models
 {
     public class ClienteCE
     {
+        public int Id_Cliente { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Correo { get; set; }

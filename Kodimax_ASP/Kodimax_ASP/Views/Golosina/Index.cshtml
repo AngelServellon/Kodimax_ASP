@@ -34,8 +34,8 @@
         <img width="200" src="@Url.Action("getImage", "Golosina", new { id = item.Id_Golosina })" alt="Alternate Text" />
         <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
         <br />
-        <p>Tipo: @Html.DisplayFor(modelItem => item.Tipo)</p>
-        <p>Duracion: $@Html.DisplayFor(modelItem => item.Precio)</p>
+        <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.Tipo)</p>
+        <p><strong>Precio:</strong> $@Html.DisplayFor(modelItem => item.Precio)</p>
 
     </div>
 }

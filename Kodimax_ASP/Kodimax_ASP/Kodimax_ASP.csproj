@@ -260,6 +260,10 @@
     <Content Include="Views\TicketPelicula\ListaSalas.cshtml" />
     <Content Include="Views\TicketGolosina\AgregarTicketGolosina.cshtml" />
     <Content Include="Views\TicketGolosina\ListaGolosinas.cshtml" />
+    <Content Include="Views\TicketPelicula\Pagar.cshtml" />
+    <Content Include="Views\TicketGolosina\Pagar.cshtml" />
+    <Content Include="Views\Shared\MenuCliente.cshtml" />
+    <Content Include="Views\Administrador\Reportes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

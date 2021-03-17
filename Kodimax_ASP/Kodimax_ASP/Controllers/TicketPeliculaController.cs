@@ -46,7 +46,7 @@ namespace Kodimax_ASP.Controllers
         {
             using (var db = new KodimaxContext())
             {
-                return db.Sala.Find(id_Sala).Nombre;
+                return db.Sala.Find(id_Sala).Nombre.ToUpper();
             }
         }
         //Obtener nombre del empleado
@@ -54,14 +54,7 @@ namespace Kodimax_ASP.Controllers
         {
             using (var db = new KodimaxContext())
             {
-                if (id_Empleado == null)
-                {
-                    return "nombre";
-                }
-                else
-                {
-                    return db.Empleado.Find(id_Empleado).NombreCompleto;
-                }
+                return db.Empleado.Find(id_Empleado).NombreCompleto;
             }
         }
         //Obtener nombre de la pelicula
@@ -92,13 +85,19 @@ namespace Kodimax_ASP.Controllers
 
                 db.TicketPelicula.Add(tp);
                 db.SaveChanges();
-                
-                ViewData["Message"] = tp.Total;
+
+                return RedirectToAction("Pagar", new { id = tp.Id_TicketPelicula });
+                //ViewData["Message"] = tp.Total;
+                //return View(tp);
+            }
+        }
+        public ActionResult Pagar(int id)
+        {
+            using (var db = new KodimaxContext())
+            {
+                TicketPelicula tp = db.TicketPelicula.Find(id);
                 return View(tp);
             }
         }
-        
-        //
-        
     }
 }

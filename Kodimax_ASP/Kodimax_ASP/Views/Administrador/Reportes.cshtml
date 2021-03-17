@@ -1,8 +1,6 @@
-﻿@model IEnumerable<Kodimax_ASP.Models.Cliente>
-
+﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Reportes";
 }
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,81 +38,35 @@
                         <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEd", "Golosina")</li>
                     </ul>
                 </li>
-                <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
+                <li>@Html.ActionLink("Reportes", "Reportes", "Administrador")</li>
                 <li><a href="/Home/Index">Cerrar sesion</a></li>
             </ul>
         </div>
     </div>
 </div>
 
-<h2>Clientes</h2><br />
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-3 ">
+            <button type="button">@Html.ActionLink("Clientes", "JsonClientes")</button>
+        </div>
+        <div class="col-md-3 ">
+            <button type="button">@Html.ActionLink("Empleados", "JsonEmpleados")</button>
+        </div>
+        <div class="col-md-3 ">
+            <button type="button">@Html.ActionLink("Peliculas", "JsonPeliculas")</button>
+        </div>
+        <div class="col-md-3 ">
+            <button type="button">@Html.ActionLink("Golosinas", "JsonGolosinas")</button>
+        </div>
+    </div>
+</div>
 
-<table class="table">
-    <tr>
-        <th>
-            Cliente
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </th>
-        <th>
-            Fecha de nacimiento
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th></th>
-    </tr>
+@*<button type="button">@Html.ActionLink("Clientes", "JsonClientes")</button>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCompleto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @{
-                    if (item.Sexo == "M")
-                    {
-                        <span>Masculino</span>
-                    }
-                    else
-                    {
-                        <span>Femenino</span>
-                    }
-                }
-            </td>
-            <td>
-                @item.Fecha_nacimiento.ToShortDateString()
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario)
-            </td>
-            <td>
-                @Html.ActionLink("Eliminar", "EliminarCliente", new { id = item.Id_Cliente }, new { @class = "aElimina" })
-            </td>
-        </tr>
-    }
+<button type="button">@Html.ActionLink("Empleados", "JsonEmpleados")</button>
 
-</table>
-@section scripts{
-    <script>
-        $(".aElimina").click(function (event) {
-            if (!confirm("Estas seguro de eliminar? ")) {
-                event.preventDefault();
-            }
-        });
-    </script>
-}
+<button type="button">@Html.ActionLink("Peliculas", "JsonPeliculas")</button>
+
+<button type="button">@Html.ActionLink("Golosinas", "JsonGolosinas")</button>*@

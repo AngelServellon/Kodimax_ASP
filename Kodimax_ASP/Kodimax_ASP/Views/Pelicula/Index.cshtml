@@ -26,17 +26,18 @@
     </div>
 </div>
 
-<h2>Cartelera</h2>
+<h2>Cartelera</h2><br />
 
 <div class="row">
     @foreach (var item in Model)
     {
+        
         <div class="col-md-4">
             <img width="200" src="@Url.Action("getImage", "Pelicula", new { id = item.Id_Pelicula })" alt="Alternate Text" />
             <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
             <br />
-            <p>Duracion: @Html.DisplayFor(modelItem => item.Duracion)</p>
-            <p>Tipo: @Html.DisplayFor(modelItem => item.Tipo)</p>
+            <p><strong>Duracion: </strong>@Html.DisplayFor(modelItem => item.Duracion)</p>
+            <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.Tipo)</p><br /><br />
         </div>
     }
 </div>

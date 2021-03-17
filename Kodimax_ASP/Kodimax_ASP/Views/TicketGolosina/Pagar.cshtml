@@ -1,0 +1,70 @@
+﻿@model Kodimax_ASP.Models.TicketGolosina
+
+@{
+    ViewBag.Title = "Pagar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Cartelera", "Index", "Pelicula")</li>
+                <li>@Html.ActionLink("Tienda de Golosinas", "Index", "Golosina")</li>
+                <li>@Html.ActionLink("Comprar Boletos", "AgregarTicketPelicula", "TicketPelicula")</li>
+                <li>@Html.ActionLink("Comprar Golosinas", "AgregarTicketGolosina", "TicketGolosina")</li>
+                <li><a href="/Home/Index">Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>Pagar</h2><br />
+
+<div class="form-horizontal poner" id="formulario">
+    <h4>Total a pagar: $@Html.DisplayFor(model => model.Total)</h4>
+    <input type="number" disabled value="@Html.DisplayFor(model => model.Total)" id="total" name="total" style="display: none;" />
+
+    @*Pagar*@
+    <div class="form-group">
+        <label class="control-label col-md-2">Pago: </label>
+        <div class="col-md-10">
+            <input type="number" name="pago" id="pago" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Pagar" class="btn btn-default" id="Pagar" />
+        </div>
+    </div>
+    <br />
+    <h4 class="texto"></h4>
+</div>
+
+<div class="quitar" id="ticket">
+    <h4 class="texto"></h4><br />
+    <hr />
+
+    <h2>KODIMAX</h2><br />
+    <p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: @Kodimax_ASP.Controllers.TicketGolosinaController.NombreEmpleado(Model.id_empleado)</strong></p><br />
+    <p>@Html.DisplayFor(model => model.Fecha)</p><br />
+    <p>@Html.DisplayFor(model => model.Cantidad) x $ @Kodimax_ASP.Controllers.TicketGolosinaController.PrecioGolosina(Model.id_golosina)</p>
+    <p><strong>@Kodimax_ASP.Controllers.TicketGolosinaController.NombreGolosina(Model.id_golosina)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.SubTotal)</p>
+    <p>----------------------------------------------</p>
+    <p>Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.SubTotal)</p>
+    <p>Impuesto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.Tax)</p><br />
+    <p>TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.Total)</p>
+
+</div>
+
+@{ 
+
+
+}
