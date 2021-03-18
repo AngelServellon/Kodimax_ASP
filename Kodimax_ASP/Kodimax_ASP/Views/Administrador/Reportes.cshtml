@@ -45,23 +45,24 @@
     </div>
 </div>
 
-<div class="container">
-    <br />
-    <div class="row">
-        <div class="col-md-3 ">
-            <button type="button">@Html.ActionLink("Clientes", "JsonClientes")</button>
-        </div>
-        <div class="col-md-3 ">
-            <button type="button">@Html.ActionLink("Empleados", "JsonEmpleados")</button>
-        </div>
-        <div class="col-md-3 ">
-            <button type="button">@Html.ActionLink("Peliculas", "JsonPeliculas")</button>
-        </div>
-        <div class="col-md-3 ">
-            <button type="button">@Html.ActionLink("Golosinas", "JsonGolosinas")</button>
-        </div>
+<br />
+
+<div class="row" id="reporte-btns">
+    <h2>Reportes</h2><br /><br /><br />
+    <div class="col-md-3 ">
+        <button type="button" class="btn btn-primary btn-block reporte">@Html.ActionLink("Clientes", "JsonClientes", "", new { @class = "boton" })</button>
+    </div>
+    <div class="col-md-3 ">
+        <button type="button" class="btn btn-primary btn-block reporte">@Html.ActionLink("Empleados", "JsonEmpleados", "", new { @class= "boton reporte"})</button>
+    </div>
+    <div class="col-md-3 ">
+        <button type="button" class="btn btn-primary btn-block reporte">@Html.ActionLink("Peliculas", "JsonPeliculas", "", new { @class = "boton reporte" })</button>
+    </div>
+    <div class="col-md-3 ">
+        <button type="button" class="btn btn-primary btn-block reporte">@Html.ActionLink("Golosinas", "JsonGolosinas", "", new { @class = "boton reporte" })</button>
     </div>
 </div>
+
 
 @*<button type="button">@Html.ActionLink("Clientes", "JsonClientes")</button>
 

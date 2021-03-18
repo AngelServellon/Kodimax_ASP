@@ -67,8 +67,9 @@ namespace Kodimax_ASP.Controllers
         }
 
         //Agregar Ticket de Peliculas
-        public ActionResult AgregarTicketPelicula()
+        public ActionResult AgregarTicketPelicula(string message = "")
         {
+            ViewBag.Message = message;
             return View();
         }
         [HttpPost]
@@ -81,8 +82,19 @@ namespace Kodimax_ASP.Controllers
                 tp.SubTotal = (Math.Truncate((PrecioSala(tp.id_sala) * tp.Cantidad) * 100) /100);
                 tp.Tax = (Math.Round((tp.SubTotal * 0.3533)*100)/100);
                 tp.Total = tp.SubTotal + tp.Tax;
-                tp.id_empleado = 1;
+                tp.id_empleado = 4;
 
+                //Cambiar la cantidad de asientos de la sala seleccionada
+                Sala sala = db.Sala.Find(tp.id_sala);
+                if (sala.Asientos < tp.Cantidad)
+                {
+                    return RedirectToAction("AgregarTicketPelicula", new { message = "No hay muchos asientos disponibles, por favor reduzca la cantidad" });
+                }
+                else
+                {
+                    sala.Asientos = sala.Asientos - tp.Cantidad;
+                }
+                
                 db.TicketPelicula.Add(tp);
                 db.SaveChanges();
 

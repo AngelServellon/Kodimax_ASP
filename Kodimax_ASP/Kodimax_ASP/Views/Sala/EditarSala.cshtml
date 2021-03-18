@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,10 +42,10 @@
             </ul>
         </div>
     </div>
-</div>*@
+</div>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -80,12 +80,12 @@
                             <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEd", "Golosina")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Reportes", "Reportes", "Administrador")</li>
                     <li><a href="/Home/Index">Cerrar sesion</a></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
 
 <h2>Editar Sala</h2>
@@ -126,14 +126,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    <button type="button" class="btn btn-warning">@Html.ActionLink("Regresar", "Index", "", new { @class= "boton" })</button>
 </div>
 
 @section Scripts {

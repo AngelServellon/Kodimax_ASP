@@ -91,7 +91,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-2">
                 <select class="form-control" id="Sexo" , name="Sexo">
                     <option value="F">Femenino</option>
                     <option value="M">Maculino</option>
@@ -126,14 +126,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Regresar", "Index")
+    <button type="button" class="btn btn-warning">@Html.ActionLink("Regresar", "Index", "", new { @class= "boton"})</button>
 </div>
 
 @section Scripts {

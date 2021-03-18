@@ -40,7 +40,7 @@
                         <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEd", "Golosina")</li>
                     </ul>
                 </li>
-                <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
+                <li>@Html.ActionLink("Reportes", "Reportes", "Administrador")</li>
                 <li><a href="/Home/Index">Cerrar sesion</a></li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
 <h2>Empleados</h2><br />
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "AgregarEmpleado")
+    <button type="button" class="btn btn-primary">@Html.ActionLink("Crear Nuevo", "AgregarEmpleado", "", new { @class= "boton"})</button>
 </p>
 <table class="table">
     <tr>
@@ -107,7 +107,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.Id_Empleado }, new { @class = "aElimina" })
+                <button type="button" class="btn btn-danger">@Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.Id_Empleado }, new { @class = "aElimina" })</button>
             </td>
         </tr>
     }

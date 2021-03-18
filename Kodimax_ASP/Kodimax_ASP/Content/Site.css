@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-inverse .navbar-nav > li > ul {
+    background-color: #222222;
+    border-color: #222222;
+}
+.navbar-inverse .navbar-nav > li > ul > li > a {
+    color: white;
+}
+.navbar-inverse .navbar-nav > li > ul > li > a:hover {
+    background-color: black;
+}

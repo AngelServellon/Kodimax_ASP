@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,10 +42,10 @@
             </ul>
         </div>
     </div>
-</div>*@
+</div>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -80,12 +80,12 @@
                             <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEd", "Golosina")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Reportes", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Reportes", "Reportes", "Administrador")</li>
                     <li><a href="/Home/Index">Cerrar sesion</a></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
 
 <h2>Peliculas</h2><br />
@@ -124,7 +124,7 @@
                 <img width="50" src="@Url.Action("getImage", "Pelicula", new { id = item.Id_Pelicula })" alt="Alternate Text" />
             </td>
             <td>
-                @Html.ActionLink("Eliminar", "EliminarPelicula", new { id = item.Id_Pelicula }, new { @class = "aElimina" })
+                <button type="button" class="btn btn-danger">@Html.ActionLink("Eliminar", "EliminarPelicula", new { id = item.Id_Pelicula }, new { @class = "aElimina" })</button>
             </td>
         </tr>
     }

@@ -41,7 +41,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="button" value="Pagar" class="btn btn-default" id="Pagar" />
+            <input type="button" value="Pagar" class="btn btn-success" id="Pagar" />
         </div>
     </div>
     <br />
@@ -49,11 +49,11 @@
 </div>
 
 <div class="quitar" id="ticket">
-    <h4 class="texto"></h4><br />
+    <h4 class="texto"></h4>
     <hr />
 
     <h2>KODIMAX</h2><br />
-    <p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: @Kodimax_ASP.Controllers.TicketPeliculaController.NombreEmpleado(Model.id_empleado)</strong></p><br />
+    <p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: </strong>@Kodimax_ASP.Controllers.TicketPeliculaController.NombreEmpleado(Model.id_empleado)</strong></p><br />
     <p>@Html.DisplayFor(model => model.Fecha)</p><br />
     <p><strong>SALA: </strong> @Kodimax_ASP.Controllers.TicketPeliculaController.NombreSala(Model.id_sala)</p><br />
     <p>@Html.DisplayFor(model => model.Cantidad) x $ @Kodimax_ASP.Controllers.TicketPeliculaController.PrecioSala(Model.id_sala)</p>

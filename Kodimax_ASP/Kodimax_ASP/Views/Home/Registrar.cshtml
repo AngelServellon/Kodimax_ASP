@@ -4,48 +4,92 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Kodimax</h2>
+        <p>Inicie sesion o registrese para acceder</p>
+    </div>
+</div>
 
-<form action="/Home/Registrar" method="post">
-    <div class="form-group">
-        <label>Nombres</label>
-        <input type="text" name="Nombres" value="" required/>
+<div class="main">
+    <div class="col-md-12 col-sm-12">
+        <div class="login-form" id="loginreg">
+
+            <form action="/Home/Registrar" method="post">
+                <div>
+                    <h3>Registrarse</h3>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Nombres</label>
+                    <div class="col-md-4">
+                        <input type="text" name="Nombres" value="" required class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Apellidos</label>
+                    <div class="col-md-4">
+                        <input type="text" name="Apellidos" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Correo</label>
+                    <div class="col-md-10">
+                        <input type="email" name="Correo" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Telefono</label>
+                    <div class="col-md-10">
+                        <input type="text" name="Telefono" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Sexo</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="Sexo" name="Sexo">
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                        </select>
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Fecha de nacimineto</label>
+                    <div class="col-md-4">
+                        <input type="date" name="Fecha_nacimiento" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Usuario</label>
+                    <div class="col-md-10">
+                        <input type="text" name="Usuario" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Password</label>
+                    <div class="col-md-10">
+                        <input type="password" name="Password" value="" required class="form-control" />
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="form-group">
+                    <label class="col-md-6">Codigo empleado(si no es empleado omita el campo)</label>
+                    <div class="col-md-6">
+                        <input type="password" name="Codigo" value="" class="form-control" />
+                    </div>
+                    <br /><br /><br />
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <button class="btn btn-success btn-block">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Apellidos</label>
-        <input type="text" name="Apellidos" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Correo</label>
-        <input type="email" name="Correo" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Telefono</label>
-        <input type="text" name="Telefono" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Sexo</label>
-        <select class="form-control" id="Sexo" name="Sexo">
-            <option value="F">Femenino</option>
-            <option value="M">Masculino</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Fecha de nacimineto</label>
-        <input type="date" name="Fecha_nacimiento" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Usuario</label>
-        <input type="text" name="Usuario" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="Password" value="" required/>
-    </div>
-    <div class="form-group">
-        <label>Codigo empleado(si no es empleado omita el campo)</label>
-        <input type="text" name="Codigo" value="" />
-    </div>
-    <div class="form-group">
-        <button>Registrarse</button>
-    </div>
-</form>
+</div>
