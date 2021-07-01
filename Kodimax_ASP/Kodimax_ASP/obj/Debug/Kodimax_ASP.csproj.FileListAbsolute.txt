@@ -83,8 +83,8 @@ C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\bin\e
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\bin\es\System.Web.WebPages.resources.dll
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.csprojAssemblyReference.cache
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.csproj.CoreCompileInputs.cache
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.csproj.CopyComplete
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.dll
 C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.pdb
+C:\Users\ZBOX\Documents\Kodigo\ASP.Net\Kodimax_ASP\Kodimax_ASP\Kodimax_ASP\obj\Debug\Kodimax_ASP.csprojAssemblyReference.cache

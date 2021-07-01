@@ -9,6 +9,9 @@ namespace Kodimax_ASP.Controllers
 {
     public class SalaController : Controller
     {
+        //----------------------------------------------------------------
+        //EMPLEADO
+
         // GET: Sala
         public ActionResult Index()
         {
@@ -49,6 +52,58 @@ namespace Kodimax_ASP.Controllers
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error - " + ex.Message);
+                return View();
+            }
+        }
+
+        //----------------------------------------------------------------
+        //EMPLEADO
+
+        // GET: Sala
+        public ActionResult IndexAdmin()
+        {
+            KodimaxContext db = new KodimaxContext();
+            return View(db.Sala.ToList());
+        }
+
+        //Editar sala
+        public ActionResult EditarSalaAdmin(int id)
+        {
+            try
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Sala sala = db.Sala.Find(id);
+                    return View(sala);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error - " + ex.Message);
+                return View();
+            }
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarSalaAdmin(Sala s)
+        {
+            try
+            {
+                using (var db = new KodimaxContext())
+                {
+                    Sala sala = db.Sala.Find(s.Id_Sala);
+                    sala.Nombre = s.Nombre;
+                    sala.Precio = s.Precio;
+                    sala.Asientos = s.Asientos;
+
+                    db.SaveChanges();
+                    return RedirectToAction("IndexAdmin");
                 }
             }
             catch (Exception ex)

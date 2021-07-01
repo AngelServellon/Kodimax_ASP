@@ -53,7 +53,7 @@
     <hr />
 
     <h2>KODIMAX</h2><br />
-    <p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: </strong>@Kodimax_ASP.Controllers.TicketGolosinaController.NombreEmpleado(Model.id_empleado)</p><br />
+    @*<p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: </strong>@Kodimax_ASP.Controllers.TicketGolosinaController.NombreEmpleado(Model.id_empleado)</p><br />*@
     <p>@Html.DisplayFor(model => model.Fecha)</p><br />
     <p>@Html.DisplayFor(model => model.Cantidad) x $ @Kodimax_ASP.Controllers.TicketGolosinaController.PrecioGolosina(Model.id_golosina)</p>
     <p><strong>@Kodimax_ASP.Controllers.TicketGolosinaController.NombreGolosina(Model.id_golosina)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.SubTotal)</p>

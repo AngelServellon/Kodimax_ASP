@@ -39,7 +39,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Pelicula</label>
-            @*@Html.LabelFor(model => model.id_pelicula, "id_pelicula", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.Action("ListaPeliculas")
                 @Html.ValidationMessageFor(model => model.id_pelicula, "", new { @class = "text-danger" })
@@ -48,7 +47,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Sala</label>
-            @*@Html.LabelFor(model => model.id_sala, "id_sala", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.Action("ListaSalas")
                 @Html.ValidationMessageFor(model => model.id_sala, "", new { @class = "text-danger" })
@@ -76,42 +74,9 @@
                 <input type="submit" value="Comprar" class="btn btn-success" />
             </div>
         </div><br /><br />
-        @*<h4>Total a pagar: @Html.ViewData["Message"]</h4>
-        <input type="number" disabled value="@Html.ViewData["Message"]" id="total" name="total" style="display: none;" />
-
-        Pagar
-        <div class="form-group">
-            <label class="control-label col-md-2">Pago: </label>
-            <div class="col-md-10">
-                <input type="text" name="pago" id="pago" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Pagar" class="btn btn-default" id="Pagar" />
-            </div>
-        </div>
-        <br />
-
-        <h4 class="texto"></h4>*@
+        
     </div>
 
-    @*<div class="quitar" id="ticket">
-        <h4 class="texto"></h4><br />
-        <hr />
-
-        <h2>KODIMAX</h2><br />
-        <p><strong>Id_Empleado:</strong>@Html.DisplayFor(model => model.id_empleado)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Empleado: </strong></p><br />
-        <p>@Html.DisplayFor(model => model.Fecha)</p><br />
-        <p><strong>SALA: </strong> </p><br />
-        <p>@Html.DisplayFor(model => model.Cantidad) x $</p>
-        <p><strong>Pelicula: </strong>         $@Html.DisplayFor(model => model.SubTotal)</p>
-        <p>----------------------------------------------</p>
-        <p>Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.SubTotal)</p>
-        <p>Impuesto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.Tax)</p><br />
-        <p>TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.Total)</p>
-
-    </div>*@
 }
 
 

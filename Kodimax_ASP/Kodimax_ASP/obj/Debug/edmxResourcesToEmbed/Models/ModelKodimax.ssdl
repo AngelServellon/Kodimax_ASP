@@ -62,7 +62,7 @@
       <PropertyRef Name="Id_TicketGolosina" />
     </Key>
     <Property Name="Id_TicketGolosina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="Cantidad" Type="int" Nullable="false" />
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />
@@ -76,7 +76,7 @@
       <PropertyRef Name="Id_TicketPelicula" />
     </Key>
     <Property Name="Id_TicketPelicula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="Cantidad" Type="int" Nullable="false" />
     <Property Name="SubTotal" Type="float" Nullable="false" />
     <Property Name="Tax" Type="float" Nullable="false" />

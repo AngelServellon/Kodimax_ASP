@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<Kodimax_ASP.Models.Sala>
+
 @{
-    ViewBag.Title = "MenuAdministrador";
+    ViewBag.Title = "IndexAdmin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -46,27 +47,40 @@
     </div>
 </div>
 
-<div class="row">
-    <h2>Proximos Estrenos</h2><br /><br />
-    <div class="col-md-4">
-        <img width="200" src="~/Content/img/descarga.jfif" alt="Alternate Text" />
-        <h3>Godzilla vs Kong</h3>
-        <br />
-        <p><strong>Duracion: </strong>2h 52m</p>
-        <p><strong>Tipo: </strong>Ciencia ficcion/Accion</p>
-    </div>
-    <div class="col-md-4">
-        <img width="200" src="~/Content/img/280x420.jpg" alt="Alternate Text" />
-        <h3>Los Croods 2 : una nueva era</h3>
-        <br />
-        <p><strong>Duracion: </strong>1h 35m</p>
-        <p><strong>Tipo: </strong>Infantil/Aventura</p>
-    </div>
-    <div class="col-md-4">
-        <img width="200" src="~/Content/img/rabbit2-scaled.jpg" alt="Alternate Text" />
-        <h3>Peter Rabbit: conejo en fuga</h3>
-        <br />
-        <p><strong>Duracion: </strong>1h 35m</p>
-        <p><strong>Tipo: </strong>Comedia/Aventura</p>
-    </div>
-</div>
+<h2>Salas</h2>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asientos)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asientos)
+            </td>
+            <td>
+                <button type="button" class="btn btn-info">@Html.ActionLink("Editar", "EditarSalaAdmin", new { id = item.Id_Sala }, new { @class = "boton" })</button>
+            </td>
+        </tr>
+    }
+
+</table>
+

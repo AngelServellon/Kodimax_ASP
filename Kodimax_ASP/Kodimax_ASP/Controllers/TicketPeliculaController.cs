@@ -86,10 +86,14 @@ namespace Kodimax_ASP.Controllers
 
                 //Cambiar la cantidad de asientos de la sala seleccionada
                 Sala sala = db.Sala.Find(tp.id_sala);
-                if (sala.Asientos < tp.Cantidad)
+                if (sala.Asientos == 0)
+                {
+                    return RedirectToAction("AgregarTicketPelicula", new { message = "Lo sentimos, ya no tenemos más asientos disponibles en esta sala." });
+                }
+                else if(sala.Asientos < tp.Cantidad)
                 {
                     return RedirectToAction("AgregarTicketPelicula", new { message = "No hay muchos asientos disponibles, por favor reduzca la cantidad" });
-                }
+                } 
                 else
                 {
                     sala.Asientos = sala.Asientos - tp.Cantidad;
@@ -99,8 +103,7 @@ namespace Kodimax_ASP.Controllers
                 db.SaveChanges();
 
                 return RedirectToAction("Pagar", new { id = tp.Id_TicketPelicula });
-                //ViewData["Message"] = tp.Total;
-                //return View(tp);
+                
             }
         }
         public ActionResult Pagar(int id)

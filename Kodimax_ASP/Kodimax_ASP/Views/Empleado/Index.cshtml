@@ -24,9 +24,9 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Agregar Pelicula", "AgregarPelicula", "Pelicula")</li>
-                        <li>@Html.ActionLink("Eliminar Pelicula", "VerPeliculas", "Pelicula")</li>
-                        <li>@Html.ActionLink("Modificar Sala de Exhibicion", "Index", "Sala")</li>
+                        <li>@Html.ActionLink("Agregar Pelicula", "AgregarPeliculaAdmin", "Pelicula")</li>
+                        <li>@Html.ActionLink("Eliminar Pelicula", "VerPeliculasAdmin", "Pelicula")</li>
+                        <li>@Html.ActionLink("Modificar Sala de Exhibicion", "IndexAdmin", "Sala")</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -35,9 +35,9 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Agregar Golosina", "AgregarGolosina", "Golosina")</li>
-                        <li>@Html.ActionLink("Eliminar Golosina", "VerGolosinas", "Golosina")</li>
-                        <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEd", "Golosina")</li>
+                        <li>@Html.ActionLink("Agregar Golosina", "AgregarGolosinaAdmin", "Golosina")</li>
+                        <li>@Html.ActionLink("Eliminar Golosina", "VerGolosinasAdmin", "Golosina")</li>
+                        <li>@Html.ActionLink("Modificar Golosinas", "VerGolosinasEdAdmin", "Golosina")</li>
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Reportes", "Reportes", "Administrador")</li>
@@ -47,10 +47,11 @@
     </div>
 </div>
 
-<h2>Empleados</h2><br />
+<h2>Empleados</h2>
+<br />
 
 <p>
-    <button type="button" class="btn btn-primary">@Html.ActionLink("Crear Nuevo", "AgregarEmpleado", "", new { @class= "boton"})</button>
+    <button type="button" class="btn btn-primary">@Html.ActionLink("Crear Nuevo", "AgregarEmpleado", "", new { @class = "boton" })</button>
 </p>
 <table class="table">
     <tr>
